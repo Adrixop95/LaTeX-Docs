@@ -1,5 +1,5 @@
 \documentclass[10pt,aspectratio=169]{beamer}
-\usetheme{Madrid}
+\usetheme{metropolis}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT4]{polski}
@@ -23,7 +23,6 @@
 
 	\frame{
 		\frametitle{Typ zadania}
-		\framesubtitle{Z czym to się je?}
 		\begin{itemize}
 			\item Jest to zadanie optymalizacyjne: celem jest znalezienie ekstremum funkcji.~
 			\item Należy definiować liczby jako składniki, z czego jeden parametr musi być zależny od drugiego.~
@@ -41,15 +40,12 @@
 			\text{Z treści zadania wynika: ~}\\
 			x + y &= 100 \Rightarrow y = 100 - x \\
 			\text{Wykorzystując maksymalizację: ~}\\
-			f(z) &= x \cdot y = x \cdot (100-x) = 100x - x^{2} \\
+			f(x) &= x \cdot y = x \cdot (100-x) = 100x - x^{2} \\
 			\text{Pochodną funkcji przyrównujemy do zera: ~}\\
 			\frac{\partial}{\partial x}(100x - x^{2}) &= 0\\
-			100 - 2x &= 0\\
-			2x &= 100\\
-			x &= 50 \\
+			100 - 2x &= 0 \Rightarrow 2x = 100 \Rightarrow x = 50\\
 			\text{Zgodnie z zadaniem y \textgreater 0, więc: ~}\\
-			y &= 50\\
-			x+y &= 100 \Rightarrow 50 + 50 = 100
+			y &= 50 - 100 \Rightarrow y = 50
 		\end{align*}
 	}
 	

@@ -1,0 +1,52 @@
+\documentclass[UTF8]{article}
+
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{polski}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{%
+	Sprawozdanie 1 \\
+	\large Zadanie 24. Przedstaw liczbę 100 jako sumę dwóch liczb całkowitych dodatnich, których iloczyn jest maksymalny.~}
+
+\author{Adrian Rupala}
+
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Teoria}
+
+
+
+\section{Rozwiązanie}
+
+Z treści zadania wynika, że potrzebujemy zdefiniować dwie liczby naturalna dodanie, w przypadku tego rozwiązania zostały one zdefiniowane jako x oraz y. Ich suma musi być równa 100. Jesteśmy również w stanie za pomocą powstałego równania wyznaczyć jedną z wartości niewiadomych. ~
+\\$x + y = 100 \Rightarrow y = x - 100 $\\
+\\Kolejnym krokiem jest utworzenie funkcji która będzie opisywała stosunek dwóch liczb których iloczyn jest maksymalny, podstawienie do niego obliczonej wartości $y$ którą obliczyliśmy przekształcając powyższe równanie.~
+\\$ f(x) = x \cdot y = x \cdot (100-x) = 100x - x^{2} $\\
+\\Następnie aby otrzymać wynik należy obliczyć pochodną funkcji pierwszego stopnia. Otrzymane w ten sposób równanie przyrównujemy do zera. Obliczamy pochodną funkcji  ponieważ chcemy określić konkretny punkt w jakim nasz wykres paraboli przecinałby w maksymalnym punkcie oś $ x $.~
+\\$ \frac{\partial}{\partial x}(100x - x^{2}) = 0$
+\\$100 - 2x = 0$
+\\$2x = 100$
+\\$x = 50 $\\
+\\W ten sposób obliczyliśmy wartość pierwszej szukanej przez nas liczby. Aby obliczyć kolejną wystarczy obliczoną liczbę wstawić do pierwszego wzoru opisującego stosunek dwóch liczb do liczby jaką chcemy przedstawić.~
+\\$ y = 50 - 100 \Rightarrow y = 50 $\\
+\\W ten sposób obliczyliśmy poszukiwane przez nas dwie maksymalne liczby naturalne których iloczyn jest maksymalny.~
+
+\section{Odpowiedź}
+
+	Szukane przez nas dwie wartości dla liczby 100 to x = 50 oraz y = 50. ~
+
+\end{document}
