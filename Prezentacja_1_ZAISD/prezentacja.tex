@@ -1,0 +1,61 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{polski}
+\usepackage{flexisym}
+\usepackage{parskip}
+
+
+\title{Zadanie 24. Maksymalny iloczyn}
+\subtitle{Adrian Rupala}
+
+
+\begin{document}
+	\frame {
+		\titlepage
+	}
+
+	\frame {
+		\frametitle{Treść zadania}
+		Przedstaw liczbę 100 jako sumę dwóch liczb całkowitych dodatnich, których iloczyn jest maksymalny.~
+	}
+
+	\frame{
+		\frametitle{Typ zadania}
+		\framesubtitle{Z czym to się je?}
+		\begin{itemize}
+			\item Jest to zadanie optymalizacyjne: celem jest znalezienie ekstremum funkcji.~
+			\item Należy definiować liczby jako składniki, z czego jeden parametr musi być zależny od drugiego.~
+			\item Następnie układamy równanie zgodnie z treścią zadania.~
+			\item Kolejnym krokiem jest obliczenie pochodnej funkcji pierwszego rzędu dla wcześniej utworzonego równania.~
+			\item Wynikiem pochodnej jest jedna z naszych wartości, drugą można obliczyć podstawiając do wcześniejszego wzoru, który utworzyliśmy z treści zadania.~  
+		\end{itemize}
+
+	}
+
+	\frame{
+		\frametitle{Rozwiązanie}
+				
+		\begin{align*}
+			\text{Z treści zadania wynika: ~}\\
+			x + y &= 100 \Rightarrow y = 100 - x \\
+			\text{Wykorzystując maksymalizację: ~}\\
+			f(z) &= x \cdot y = x \cdot (100-x) = 100x - x^{2} \\
+			\text{Pochodną funkcji przyrównujemy do zera: ~}\\
+			\frac{\partial}{\partial x}(100x - x^{2}) &= 0\\
+			100 - 2x &= 0\\
+			2x &= 100\\
+			x &= 50 \\
+			\text{Zgodnie z zadaniem y \textgreater 0, więc: ~}\\
+			y &= 50\\
+			x+y &= 100 \Rightarrow 50 + 50 = 100
+		\end{align*}
+	}
+	
+	\frame{
+		\centering \Huge
+		\emph{Dziękuję za uwagę!}
+	}
+	
+\end{document}
