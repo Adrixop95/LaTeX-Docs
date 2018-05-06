@@ -1,0 +1,61 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{metropolis}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{polski}
+\usepackage{flexisym}
+\usepackage{parskip}
+\usepackage[]{algorithm2e}
+
+
+\title{Zadanie 10. Podział liczby}
+\subtitle{Adrian Rupala}
+
+
+\begin{document}
+	\frame {
+		\titlepage
+	}
+
+	\frame {
+		\frametitle{Treść zadania}
+		\fontsize{12pt}{7.2}\selectfont
+		Liczbę naturalną $C$ można przedstawić jako sumę parami różnych liczb naturalnych. Na przykład Jeśli $C = 6$, to możemy C przedstawić na cztery sposoby:
+		\\$1+2+3$
+		\\$1+5$
+		\\$2+4$
+		\\$6$
+		\\a jeśli $C = 10$, to takimi podziałami są:
+		\\$1+2+3+4$
+		\\$1+2+7$
+		\\$1+3+6$
+		\\$1+4+5$
+		\\$1+9$
+		\\$2+3+5$
+		\\$2+8$
+		\\$3+7$
+		\\$4+6$
+		\\$10$
+		\\Skonstruuj algorytm wyczerpujący z nawrotami, generujący wszystkie podziały podanej liczby naturalnej $C$.~
+	}
+
+	\frame{
+		\frametitle{Definicje}
+		\fontsize{14pt}{7.2}\selectfont
+		\large Algorytm z nawrotami (backtracking) - algorytm wyszukiwania wszystkich lub kilku rozwiązań polegający na znajdowaniu wyniku metodą "prób i błędów", wszelako z oznaczeniem niepowodzeń, dzięki czemu te same błędy nie są popełniane dwukrotnie. ~ \bigskip
+			
+		Jeżeli problem pozwala na zastosowanie algorytmu wyszukiwania z nawrotami, to metoda ta może być znaczenie efektywniejsza niż wyszukiwanie wyczerpujące (zakładając przeszukiwanie wszystkich rozwiązań), ponieważ pojedynczy test może wyeliminować nie jedno a wiele rozwiązań niedopuszczalnych. ~
+	}
+
+	\frame{
+		\frametitle{Rozwiązanie}
+		\fontsize{13pt}{7.2}\selectfont	
+
+	}
+	
+	\frame{
+		\centering \Huge
+		\emph{Dziękuję za uwagę!}
+	}
+	
+\end{document}
