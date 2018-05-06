@@ -48,9 +48,31 @@
 	}
 
 	\frame{
+	\frametitle{Definicje}
+	\fontsize{14pt}{7.2}\selectfont
+	\large Rekurencja- odwołanie się funkcji lub definicji do samej siebie. 
+	
+	}
+
+	\frame{
 		\frametitle{Rozwiązanie}
 		\fontsize{13pt}{7.2}\selectfont	
-
+		
+		\begin{algorithm}[H]
+			\KwData{this text}
+			\KwResult{how to write algorithm with \LaTeX2e }
+			initialization\;
+			\While{not at end of this document}{
+				read current\;
+				\eIf{understand}{
+					go to next section\;
+					current section becomes this one\;
+				}{
+					go back to the beginning of current section\;
+				}
+			}
+			\caption{How to write algorithms}
+		\end{algorithm}
 	}
 	
 	\frame{
