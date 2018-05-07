@@ -11,7 +11,7 @@ bool checkDuplicates(int array[], int n)
 	int i;
 	for (i = 0; i < n - 1; i++)
 	{
-		if (array[i] == array[i + 1])
+		if (array[i-1] == array[i + 1] && array[i-1] == 3)
 			return true;
 	}
 	return false;
@@ -20,15 +20,11 @@ bool checkDuplicates(int array[], int n)
 void dalej(int poz, int pozostalo)
 {
 	if (pozostalo == 0) {
-		if (checkDuplicates(ciag, poz) == false){
 			for (int i = 1; i <= poz - 1; i++) {
 				cout << ciag[i] << " ";
 			}
 			cout << endl;
-		}
-	}
-
-	else {
+	} else {
 		for (int k = ciag[poz - 1]; k <= pozostalo; k++) {
 			ciag[poz] = k;
 			dalej(poz + 1, pozostalo - k);
