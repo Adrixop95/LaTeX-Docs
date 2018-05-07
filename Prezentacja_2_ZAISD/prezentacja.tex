@@ -5,7 +5,9 @@
 \usepackage[OT4]{polski}
 \usepackage{flexisym}
 \usepackage{parskip}
-\usepackage[]{algorithm2e}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath}
 
 
 \title{Zadanie 10. Podział liczby}
@@ -20,11 +22,11 @@
 	\frame {
 		\frametitle{Treść zadania}
 		\fontsize{12pt}{7.2}\selectfont
-		Liczbę naturalną $C$ można przedstawić jako sumę parami różnych liczb naturalnych. Na przykład Jeśli $C = 6$, to możemy C przedstawić na cztery sposoby:
+		Liczbę naturalną $C$ można przedstawić jako sumę parami różnych liczb naturalnych. Na przykład Jeśli $C = 6$, to możemy C przedstawić na cztery sposoby:~
 		\\$1+2+3$
 		\\$1+5$
 		\\$2+4$
-		\\$6$
+		\\$6$ 
 		\\a jeśli $C = 10$, to takimi podziałami są:
 		\\$1+2+3+4$
 		\\$1+2+7$
@@ -58,21 +60,8 @@
 		\frametitle{Rozwiązanie}
 		\fontsize{13pt}{7.2}\selectfont	
 		
-		\begin{algorithm}[H]
-			\KwData{this text}
-			\KwResult{how to write algorithm with \LaTeX2e }
-			initialization\;
-			\While{not at end of this document}{
-				read current\;
-				\eIf{understand}{
-					go to next section\;
-					current section becomes this one\;
-				}{
-					go back to the beginning of current section\;
-				}
-			}
-			\caption{How to write algorithms}
-		\end{algorithm}
+		\Procedure{Test}{}
+		
 	}
 	
 	\frame{
