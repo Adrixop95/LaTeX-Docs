@@ -8,6 +8,37 @@
 \usepackage{geometry}
 \usepackage{titlesec}
 \usepackage{graphicx}
+
+\newcommand{\var}{\texttt}
+\newcommand{\assign}{\leftarrow}
+
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{capt-of}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=c++,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
 \graphicspath{ {pics/} }
 
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
@@ -15,7 +46,7 @@
 
 \title{%
 	Sprawozdanie 2 \\
-	\large Zadanie 10. Liczbę naturalną $C$ można przedstawić jako sumę parami różnych liczb naturalnych. Na przykład Jeśli $C = 6$, to możemy C przedstawić na cztery sposoby:
+	\large\flushleft Zadanie 10. Liczbę naturalną $C$ można przedstawić jako sumę parami różnych liczb naturalnych. Na przykład jeśli $C = 6$, to możemy C przedstawić na cztery sposoby:
 	\\$1+2+3$
 	\\$1+5$
 	\\$2+4$
@@ -31,7 +62,7 @@
 	\\$3+7$
 	\\$4+6$
 	\\$10$
-	\\Skonstruuj algorytm wyczerpujący z nawrotami, generujący wszystkie podziały podanej liczby naturalnej $C$~}
+	\\Skonstruuj algorytm wyczerpujący z nawrotami, generujący wszystkie podziały podanej liczby naturalnej $C$.~}
 
 \author{Adrian Rupala}
 
@@ -48,8 +79,46 @@
 
 \section{Teoria}
 
+Algorytm z nawrotami (backtracking) - algorytm wyszukiwania wszystkich lub kilku rozwiązań polegający na znajdowaniu wyniku metodą "prób i błędów", wszelako z oznaczeniem niepowodzeń, dzięki czemu te same błędy nie są popełniane dwukrotnie. ~ \\
+\\Jeżeli problem pozwala na zastosowanie algorytmu wyszukiwania z nawrotami, to metoda ta może być znaczenie efektywniejsza niż wyszukiwanie wyczerpujące (zakładając przeszukiwanie wszystkich rozwiązań), ponieważ pojedynczy test może wyeliminować nie jedno a wiele rozwiązań niedopuszczalnych. ~ \\
+\\Rekurencja - technika programowania, dzięki której funkcja, procedura lub podprogram jest w stanie w swoim ciele wywołać sam siebie. Pozwala ona łatwo wykonać wiele zadań, w których potrzeba jest wyników cząstkowych do obliczenia całości. ~
+
 \section{Rozwiązanie}
 
-\section{Odpowiedź}
+Oto pseudokod przedstawiający rozwiązanie problemu przedstawionego w zadaniu.
+
+\begin{lstlisting}
+
+bool znajdz_duplikat(int lista[], int rozmiar_tablicy) {
+	sort(lista);
+	for (int i = 0; i < rozmiar_tablicy - 1; i++) {
+		if (lista[i] == lista[i + 1]){
+			return true;
+		}
+	}
+	return false;
+}	
+
+void sprawdz_i_wypisz(int pozycja, int pozostalo) {
+	if (pozostalo == 0 && znajdzDuplikat(lista, pozycja) == false) {
+		for (int i = 1; i <= pozycja - 1; i++) {
+			cout << lista[i] << " ";
+		}
+		cout << endl;
+	} else {
+		for (int k = lista[pozycja - 1]; k <= pozostalo; k++) {
+			lista[pozycja] = k;
+			sprawdz_i_wypisz(pozycja + 1, pozostalo - k);
+		}
+	}
+}	
+
+void wywolanie(int C) {
+	lista[0] = 1;
+	sprawdz_i_wypisz(1, C);
+}
+		
+\end{lstlisting}
+
 
 \end{document}

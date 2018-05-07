@@ -2,25 +2,31 @@
 
 using namespace std;
 
-int main(){
+bool znajdz_duplikat(int lista[], int rozmiar_tablicy) {
+	sort(lista);
+	for (int i = 0; i < rozmiar_tablicy - 1; i++) {
+		if (lista[i] == lista[i + 1]){
+			return true;
+		}
+	}
+	return false;
+}	
 
-    int liczba = 0;
-	cout << "Podaj liczbe: " << endl;
-	cin >> liczba;
-	cin.get();
-	cout << "======" << endl;
-    
-    cout << "1 2 3 4" << endl; 
-    cout << "1 2 7" << endl;
-    cout << "1 3 6" << endl;
-    cout << "1 4 5" << endl;
-    cout << "1 9" << endl;
-    cout << "2 3 5" << endl;
-    cout << "2 8" << endl;
-    cout << "3 7" << endl;
-    cout << "4 6" << endl;
-    cout << "10" << endl;
+void sprawdz_i_wypisz(int pozycja, int pozostalo) {
+	if (pozostalo == 0 && znajdzDuplikat(lista, pozycja) == false) {
+		for (int i = 1; i <= pozycja - 1; i++) {
+			cout << lista[i] << " ";
+		}
+		cout << endl;
+	} else {
+		for (int k = lista[pozycja - 1]; k <= pozostalo; k++) {
+			lista[pozycja] = k;
+			sprawdz_i_wypisz(pozycja + 1, pozostalo - k);
+		}
+	}
+}	
 
-    cin.get();
-    return 0;
+void wywolanie(int C) {
+	lista[0] = 1;
+	sprawdz_i_wypisz(1, C);
 }
