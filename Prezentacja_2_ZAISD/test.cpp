@@ -7,11 +7,10 @@ int ciag[100];
 
 bool checkDuplicates(int array[], int n)
 {
-	sort(array, array + n);
 	int i;
-	for (i = 0; i < n - 1; i++)
+	for (i = 1; i < n - 1; i++)
 	{
-		if (array[i-1] == array[i + 1] && array[i-1] == 3)
+		if (array[i] == array[i + 1])
 			return true;
 	}
 	return false;
@@ -25,9 +24,12 @@ void dalej(int poz, int pozostalo)
 			}
 			cout << endl;
 	} else {
-		for (int k = ciag[poz - 1]; k <= pozostalo; k++) {
-			ciag[poz] = k;
-			dalej(poz + 1, pozostalo - k);
+		if (checkDuplicates(ciag, poz) == false){
+			for (int k = ciag[poz - 1]; k <= pozostalo; k++) {
+					ciag[poz] = k;
+					dalej(poz + 1, pozostalo - k);
+				
+			}
 		}
 	}
 }
