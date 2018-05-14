@@ -67,35 +67,55 @@
 	\frame{
 		\frametitle{Definicje}
 		\fontsize{14pt}{7.2}\selectfont
-		\large Algorytm z nawrotami (backtracking) - algorytm wyszukiwania wszystkich lub kilku rozwiązań polegający na znajdowaniu wyniku metodą "prób i błędów", wszelako z oznaczeniem niepowodzeń, dzięki czemu te same błędy nie są popełniane dwukrotnie. ~ \bigskip
+		\large Algorytm z nawrotami to algorytm wyszukiwania wszystkich lub kilku rozwiązań. Polega on na znajdowaniu wyniku metodą „prób i błędów”, wszelako z oznaczeniem niepowodzeń, dzięki czemu te same błędy nie są popełniane dwukrotnie.~
+		
+		\large Jeżeli problem pozwala na zastosowanie algorytmu wyszukiwania z nawrotami, to metoda ta może być znaczenie efektywniejsza niż wyszukiwanie wyczerpujące (zakładające przeszukiwanie wszystkich rozwiązań), ponieważ pojedynczy test może wyeliminować nie jedno, a wiele rozwiązań niedopuszczalnych.~
 			
-		\large Jeżeli problem pozwala na zastosowanie algorytmu wyszukiwania z nawrotami, to metoda ta może być znaczenie efektywniejsza niż wyszukiwanie wyczerpujące (zakładając przeszukiwanie wszystkich rozwiązań), ponieważ pojedynczy test może wyeliminować nie jedno a wiele rozwiązań niedopuszczalnych. ~
 	}
 
 	\frame{
 	\frametitle{Definicje}
 	\fontsize{14pt}{7.2}\selectfont
-	\large Rekurencja - technika programowania, dzięki której funkcja, procedura lub podprogram jest w stanie w swoim ciele wywołać sam siebie. Pozwala ona łatwo wykonać wiele zadań, w których potrzeba jest wyników cząstkowych do obliczenia całości. ~
+	\large Rekurencja to technika programowania, dzięki której funkcja, procedura lub podprogram jest w stanie w swoim ciele wywołać samą siebie. Pozwala ona łatwo wykonać wiele zadań, w których zachodzi potrzeba obliczenia wyników cząstkowych do obliczenia całości. ~
 		
 	}
+
+	\begin{frame}[fragile]
+	\frametitle{Rozwiązanie - pseudokod}
+	
+	\begin{lstlisting}
+		bool znajdz_duplikat(int tablica[], int rozmiar_tablicy) {
+			sort(tablica);
+			for (int i = 0; i < rozmiar_tablicy - 1; i++) {
+				if (lista[i] == tablica[i + 1]){
+					return true;
+				}
+			}
+			return false;
+		}
+	\end{lstlisting}
+	
+	\end{frame}
 
 	\begin{frame}[fragile]
 	\frametitle{Rozwiązanie - pseudokod}
 
 			\begin{lstlisting}
 			void sprawdz_i_wypisz(int pozycja, int pozostalo) {
-				if (pozostalo == 0 && znajdzDuplikat(lista, pozycja) == false) {
+				if (pozostalo == 0) {
 					for (int i = 1; i <= pozycja - 1; i++) {
-						cout << lista[i] << " ";
+						cout << tablica[i] << " + ";
 					}
 					cout << endl;
 				} else {
-					for (int k = lista[pozycja - 1]; k <= pozostalo; k++) {
-						lista[pozycja] = k;
-						sprawdz_i_wypisz(pozycja + 1, pozostalo - k);
+					if(znajdzDuplikat(tablica, pozycja) == false){
+						for (int k = tablica[pozycja - 1]; k <= pozostalo; k++) {
+							tablica[pozycja] = k;
+							sprawdz_i_wypisz(pozycja + 1, pozostalo - k);
+						}
 					}
 				}
-			}			
+			}
 			\end{lstlisting}
 
 	\end{frame}
@@ -106,7 +126,7 @@
 		\begin{lstlisting}
 			
 		void wywolanie(int C) {
-			lista[0] = 1;
+			tablica[0] = 1;
 			sprawdz_i_wypisz(1, C);
 		}
 		\end{lstlisting}
@@ -114,31 +134,14 @@
 	\end{frame}
 
 	\begin{frame}[fragile]
-	\frametitle{Rozwiązanie - pseudokod}
-			
-			\begin{lstlisting}
-				bool znajdz_duplikat(int lista[], int rozmiar_tablicy) {
-					sort(lista);
-					for (int i = 0; i < rozmiar_tablicy - 1; i++) {
-						if (lista[i] == lista[i + 1]){
-							return true;
-						}
-					}
-					return false;
-				}
-			\end{lstlisting}
-			
-	\end{frame}
-
-	\begin{frame}[fragile]
 	\frametitle{Wykonanie kodu}
 		\begin{columns}
 			\column{.5\textwidth}
-			\includegraphics[width=\columnwidth]{source/1.png}
+			\includegraphics[width=.5\linewidth]{source/1.png}
 			\captionof{figure}{Wynik dla liczby 6 z powtórzeniami.}
 			
 			\column{.5\textwidth}
-			\includegraphics[width=\columnwidth]{source/2.png}
+			\includegraphics[width=.6\linewidth]{source/2.png}
   			\captionof{figure}{Wynik dla liczby 6 bez powtórzeń.}
 
 		\end{columns}
@@ -148,11 +151,11 @@
 	\frametitle{Wykonanie kodu}
 		\begin{columns}
 			\column{.5\textwidth}
-			\includegraphics[width=\columnwidth,height=140px]{source/3.png}
+			\includegraphics[width=.3\linewidth]{source/3.png}
 			\captionof{figure}{Wynik dla liczby 10 z powtórzeniami.}
 			
 			\column{.5\textwidth}
-			\includegraphics[width=\columnwidth]{source/4.png}
+			\includegraphics[width=.4\columnwidth]{source/4.png}
 			\captionof{figure}{Wynik dla liczby 10 bez powtórzeń.}
 			
 		\end{columns}

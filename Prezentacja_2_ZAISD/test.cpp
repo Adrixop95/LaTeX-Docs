@@ -20,17 +20,17 @@ void dalej(int poz, int pozostalo)
 {
 	if (pozostalo == 0) {
 			for (int i = 1; i <= poz - 1; i++) {
-				cout << ciag[i] << " ";
+				cout << ciag[i] << " + ";
 			}
 			cout << endl;
 	} else {
-		if (checkDuplicates(ciag, poz) == false){
+		//if (checkDuplicates(ciag, poz) == false){
 			for (int k = ciag[poz - 1]; k <= pozostalo; k++) {
 					ciag[poz] = k;
 					dalej(poz + 1, pozostalo - k);
 				
 			}
-		}
+		//}
 	}
 }
 
