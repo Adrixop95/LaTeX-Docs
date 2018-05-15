@@ -81,55 +81,51 @@
 	}
 
 	\begin{frame}[fragile]
-	\frametitle{Rozwiązanie - pseudokod}
+	\frametitle{Rozwiązanie - kod C++}
 	
-	\begin{lstlisting}
-		bool znajdz_duplikat(int tablica[], int rozmiar_tablicy) {
-			sort(tablica);
-			for (int i = 0; i < rozmiar_tablicy - 1; i++) {
-				if (lista[i] == tablica[i + 1]){
-					return true;
-				}
+	\begin{lstlisting}[basicstyle=\footnotesize]
+	void podzial(int C, int obecny, int* tablica, int index) {
+		if (obecny + tablica[index] == C) {
+			for (int i=0; i <= index; i++) {
+				cout << tablica[i] << " ";
 			}
-			return false;
+			cout << endl;       
+			;
+		} else if (obecny + tablica[index] > C) {
+			;
+		} else {
+			for(int i = tablica[index]+1; i < C; i++) {
+				tablica[index+1] = i;
+				podzial(C, obecny + tablica[index], tablica, index+1);
+			}
 		}
+	}
 	\end{lstlisting}
 	
 	\end{frame}
 
 	\begin{frame}[fragile]
-	\frametitle{Rozwiązanie - pseudokod}
+	\frametitle{Rozwiązanie - kod C++}
 
-			\begin{lstlisting}
-			void sprawdz_i_wypisz(int pozycja, int pozostalo) {
-				if (pozostalo == 0) {
-					for (int i = 1; i <= pozycja - 1; i++) {
-						cout << tablica[i] << " + ";
-					}
-					cout << endl;
-				} else {
-					if(znajdzDuplikat(tablica, pozycja) == false){
-						for (int k = tablica[pozycja - 1]; k <= pozostalo; k++) {
-							tablica[pozycja] = k;
-							sprawdz_i_wypisz(pozycja + 1, pozostalo - k);
-						}
-					}
-				}
-			}
+			\begin{lstlisting}[basicstyle=\footnotesize]
+	int main(){   
+		int C = 0;
+	
+		cout << "Podaj liczbe: " << endl;
+		cin >> C;
+		cin.get();
+		cout << "======" << endl;
+	
+		for(int i = 1; i < C; i++) {
+			tablica[0] = i;
+			podzial(C, 0, tablica, 0);
+		}
+	
+		cin.get();
+		return 0;
+	}
 			\end{lstlisting}
 
-	\end{frame}
-
-		\begin{frame}[fragile]
-		\frametitle{Rozwiązanie - pseudokod}
-	
-		\begin{lstlisting}
-			
-		void wywolanie(int C) {
-			tablica[0] = 1;
-			sprawdz_i_wypisz(1, C);
-		}
-		\end{lstlisting}
 	
 	\end{frame}
 
@@ -137,29 +133,16 @@
 	\frametitle{Wykonanie kodu}
 		\begin{columns}
 			\column{.5\textwidth}
-			\includegraphics[width=.5\linewidth]{source/1.png}
-			\captionof{figure}{Wynik dla liczby 6 z powtórzeniami.}
+			\includegraphics[width=.6\linewidth]{source/1.png}
+			\captionof{figure}{Wynik dla liczby 6.}
 			
 			\column{.5\textwidth}
 			\includegraphics[width=.6\linewidth]{source/2.png}
-  			\captionof{figure}{Wynik dla liczby 6 bez powtórzeń.}
+  			\captionof{figure}{Wynik dla liczby 10.}
 
 		\end{columns}
 	\end{frame}
 
-	\begin{frame}[fragile]
-	\frametitle{Wykonanie kodu}
-		\begin{columns}
-			\column{.5\textwidth}
-			\includegraphics[width=.3\linewidth]{source/3.png}
-			\captionof{figure}{Wynik dla liczby 10 z powtórzeniami.}
-			
-			\column{.5\textwidth}
-			\includegraphics[width=.4\columnwidth]{source/4.png}
-			\captionof{figure}{Wynik dla liczby 10 bez powtórzeń.}
-			
-		\end{columns}
-	\end{frame}
 	
 		
 	\frame{
