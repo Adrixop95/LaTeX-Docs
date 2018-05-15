@@ -24,13 +24,13 @@ void dalej(int poz, int pozostalo)
 			}
 			cout << endl;
 	} else {
-		//if (checkDuplicates(ciag, poz) == false){
+		if (checkDuplicates(ciag, poz) == false){
 			for (int k = ciag[poz - 1]; k <= pozostalo; k++) {
 					ciag[poz] = k;
 					dalej(poz + 1, pozostalo - k);
 				
 			}
-		//}
+		}
 	}
 }
 
