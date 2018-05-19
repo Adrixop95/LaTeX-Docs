@@ -83,51 +83,56 @@ Algorytm z nawrotami to algorytm wyszukiwania wszystkich lub kilku rozwiązań. 
 
 Jeżeli problem pozwala na zastosowanie algorytmu wyszukiwania z nawrotami, to metoda ta może być znaczenie efektywniejsza niż wyszukiwanie wyczerpujące (zakładające przeszukiwanie wszystkich rozwiązań), ponieważ pojedynczy test może wyeliminować nie jedno, a wiele rozwiązań niedopuszczalnych. ~\\
 
-Rekurencja to technika programowania, dzięki której funkcja, procedura lub podprogram jest w stanie w swoim ciele wywołać sama siebie. Pozwala ona łatwo wykonać wiele zadań, w których zachodzi potrzeba obliczenia wyników cząstkowych do obliczenia całości. ~
+Rekurencja to technika programowania, dzięki której funkcja, procedura lub podprogram jest w stanie w swoim ciele wywołać samą siebie. Pozwala ona łatwo wykonać wiele zadań, w których zachodzi potrzeba obliczenia wyników cząstkowych do obliczenia całości. ~
 
 \section{Rozwiązanie}~
 
-Oto pseudokod przedstawiający rozwiązanie problemu przedstawionego w zadaniu.
+Oto algorytm zaimplementowany w języku C++ przedstawiający rozwiązanie problemu przedstawionego w zadaniu:
 
 \begin{lstlisting}
 
-bool znajdz_duplikat(int tablica[], int rozmiar_tablicy) {
-	sort(tablica);
-	for (int i = 1; i < rozmiar_tablicy - 1; i++) {
-		if (tablica[i] == tablica[i + 1]){
-			return true;
-		}
-	}
-	return false;
-}	
+#include <iostream>
 
-void sprawdz_i_wypisz(int pozycja, int pozostalo) {
-	if (pozostalo == 0) {
-		for (int i = 1; i <= pozycja - 1; i++) {
-			cout << tablica[i] << " + ";
+using namespace std;
+
+int tablica[100];
+
+void podzial(int C, int obecny, int* tablica, int index) {
+	if (obecny + tablica[index] == C) {
+		for (int i=0; i <= index; i++) {
+			cout << tablica[i] << " ";
 		}
-		cout << endl;
+		cout << endl;       
+		;
+	} else if (obecny + tablica[index] > C) {
+		;
 	} else {
-		if(znajdzDuplikat(tablica, pozycja) == false){
-			for (int k = tablica[pozycja - 1]; k <= pozostalo; k++) {
-				tablica[pozycja] = k;
-				sprawdz_i_wypisz(pozycja + 1, pozostalo - k);
-			}
+		for(int i = tablica[index]+1; i < C; i++) {
+			tablica[index+1] = i;
+			podzial(C, obecny + tablica[index], tablica, index+1);
 		}
 	}
-}	
+}
 
-void wywolanie(int C) {
-	tablica[0] = 1;
-	sprawdz_i_wypisz(1, C);
+int main(){   
+	int C = 0;
+
+	cout << "Podaj liczbe: " << endl;
+	cin >> C;
+	cin.get();
+	cout << "======" << endl;
+
+	for(int i = 1; i <= C; i++) {
+		tablica[0] = i;
+		podzial(C, 0, tablica, 0);
+	}
+
+	cin.get();
+	return 0;
 }
 		
 \end{lstlisting}
-\newpage
-Na samym początku przedstawiona została funkcja \texttt{znajdz\char`_duplikat}. Sortuje ona tablicę, a następnie porównuje wszystkie istniejące elementy, aby zobaczyć czy występują powtórzone wartości. Zwraca ona logiczną wartość \texttt{true} jeśli występuje powtórzenie lub \texttt{false} jeśli porównywane wartości są różne. ~\\
 
-Kolejna funkcja, nazwana  \texttt{sprawdz\char`_i\char`_wypisz}, odpowiada za generowanie ciągów liczbowych i wypisywanie ich. Najpierw funkcja sprawdza ilość pozostałych wartości ciągu liczbowego. Jeżeli ten parametr ma wartość 0, zawartość ciągu zostaje wypisana. W przeciwnym wypadku sprawdzamy, czy pojedynczy element w tablicy wystąpił już wcześniej. Jeżeli nie znaleziono identycznego elementu, algorytm iteruje po kolejnych elementach ciągu liczbowego tak długo, jak ilość pozostałych elementów jest większa bądź równa zero. W momencie spełnienia warunku, funkcja wywoływana jest rekurencyjnie, gdzie parametr pozycji zostaje zwiększony o jeden, a ilość poszukiwanych liczb jest zmniejszana.~\\
-
-Ostatnia funkcja algorytmu odpowiada za przypisanie pierwszej wartości tablicy liczby 1, ponieważ jest to najmniejsza wartość, jaką może osiągnąć liczba w naszym rozkładzie oraz zostaje wywołana funkcja \texttt{sprawdz\char`_i\char`_wypisz} z parametrami: 1 jako pierwsza wartość pozycji, oraz liczbą, jaka ma zostać rozłożona.~\\
+Kod programu składa się z dwóch funkcji: \texttt{podzial} oraz głównej funkcji \texttt{main}. Funkcja \texttt{main} ma za zadanie pobranie od użytkownika liczby, zachowanie jej do zmiennej \texttt{C} oraz wypisanie kolejnych tablic które zawierający pożądane przez nas liczby wywołując funkcję \texttt{podzial}. Funkcja \texttt{podzial} pierwszej instrukcji warunkowej \texttt{if} sprawdza czy (...) a następnie wypisuje całą tablicę. Następnie sprawdza czy (...) i nie zwraca nic. W wszystkich pozostałych przypadkach 
 
 \end{document}
