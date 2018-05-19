@@ -62,26 +62,51 @@
 \newpage
 \pagenumbering{arabic}
 
-\section{Teoria} ~
+\section{Teoria}
 
-Celem zadania jest obliczenie prawdopodobieństwa warunkowego. Twierdzenie Bayesa jest bezpośrednio związane z obliczaniem prawdopodobieństwa warunkowego i ma ono na celu jego korygowanie w oparciu o uzyskane później informacje o zachodzących zdarzeniach. W tym zadaniu mamy również do czynienia z dwoma zdarzeniami zachodzącymi po sobie. Pierwsze z nich to prawidłowa odpowiedź na pytanie, kolejne to nie popełnienie błędu przez uczenia.~\\
-
-W podstawowej formie twierdzenie Bayesa mówi, że
-\\$P(A | B) = \frac{P(B|A)P(A)}{P(B)}$,
-\\gdzie $A$ i $B$ są zdarzeniami oraz $P(B) > 0$, przy czym
+Celem zadania jest obliczenie prawdopodobieństwa warunkowego. Twierdzenie Bayesa jest bezpośrednio związane z obliczaniem prawdopodobieństwa warunkowego i ma ono na celu jego korygowanie na podstawie uzyskanych później informacje o zachodzących zdarzeniach. W tym zadaniu mamy również do czynienia~z~dwoma zdarzeniami zachodzącymi po sobie. Pierwsze z nich to prawidłowa odpowiedź na pytanie, kolejne to niepopełnienie błędu przez uczenia.~\\
+\noindent \\W podstawowej formie twierdzenie Bayesa mówi, że:
+\\$P(A_{i} | B) = \frac{P(B|A_{1})P(A_{i})}{P(B)}$, gdzie: $P(B) = \sum_{i \in j} P(B|A_{j}) \cdot P(A_{j}) $ \\
+\\Kiedy $A$ i $B$ są zdarzeniami oraz $P(B) > 0$, przy czym:
 
 \begin{itemize}
 	\item $P(A|B)$ oznacza prawdopodobieństwo warunkowe (prawdopodobieństwo zajścia zdarzenia A o ile zajdzie zdarzenie B).~
-	\item $P(B|A)$ oznacza prawdopodobieństwo zajścia zdarzenia B o ile zajdzie zdarzenie A.~
+	\item $P(B|A)$ oznacza prawdopodobieństwo zajścia zdarzenia B, o ile zajdzie zdarzenie A.~
 \end{itemize}
 
-\section{Rozwiązanie} ~
+\section{Rozwiązanie}
 
+Z treści zadania można odczytać następujące dane:
+\begin{itemize}
+	\item $A_{1}$ - uczeń zna odpowiedź,
+	\item $A_{2}$ -  uczeń nie zna odpowiedzi,
+	\item $B$ - uczeń nie popełnił błędu.
+\end{itemize}
 
+\bigskip
+\noindent Szukaną przez nas wartością jest prawdopodobieństwo zakładające, że uczeń zna odpowiedź, oraz, że uczeń nie popełnił błędu $P(A_{1}|B)$, następnie podstawiając do wzoru Bayesa otrzymujemy równanie:
+\\$P(A_{1}|B) = \frac{P(B|A_{1}) \cdot P(A_{1})}{P(A_{1}) \cdot P(B|A_{1}) + P(A_{2}) \cdot P(B|A_{2})}$
+
+\bigskip 
+\noindent Z treści zadania wynika, że 
+\begin{itemize}
+	\item $P(A_{1}) = P(A_{2}) = \frac{1}{2}$, 
+	\item $P(B|A_{1}) = 1$,
+	\item $P(B|A_{2}) = \frac{1}{5}$.
+\end{itemize}
+Następnie podstawiając wartości do wzoru można otrzymać następujące równanie:\\
+$P(A_{1}|B) = \frac{\frac{1}{2} \cdot 1}{\frac{1}{2} \cdot 1 + \frac{1}{2} \cdot \frac{1}{5}}$\\
+\\*Upraszczając równanie:
+\\$P(A_{1}|B) = \frac{1}{2(\frac{\frac{1}{5}}{2} + \frac{1}{2})}$ $\Rightarrow$ $P(A_{1}|B) = \frac{1}{2(\frac{1}{10} + \frac{1}{2})}$ \\
+Następnie można sprowadzić ułamki w mianowniku do wspólnego mianownika:
+\\$P(A_{1}|B) = \frac{1}{2\cdot \frac{5+1}{10}}$ $\Rightarrow$ $P(A_{1}|B) = \frac{1}{2 \cdot \frac{6}{10}}$\\
+\\*Kolejnym krokiem jest przeniesienie dwójki do licznika oraz uproszczenie postaci ułamka znajdującego się w mianowniku:
+\\$P(A_{1}|B) = \frac{\frac{1}{2}}{\frac{3}{5}}$\\
+\\*Mnożąc licznik przez odwrotność mianownika, otrzymamy równanie postaci:
+\\$P(A_{1}|B) = \frac{5}{2 \cdot 3}$ $\Rightarrow$ $P(A_{1}|B) = \frac{5}{6}$
 
 \newpage
 
-\section{Odpowiedź} ~
-
-
+\section{Odpowiedź}
+Prawdopodobieństwo warunkowe tego, że student znał odpowiedź na pytanie, jeśli nie popełnił błędu, wynosi $\frac{5}{6}$.
 \end{document}
