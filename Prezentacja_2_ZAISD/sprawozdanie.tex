@@ -133,6 +133,10 @@ int main(){
 		
 \end{lstlisting}
 
-Kod programu składa się z dwóch funkcji: \texttt{podzial} oraz głównej funkcji \texttt{main}. Funkcja \texttt{main} ma za zadanie pobranie od użytkownika liczby, zachowanie jej do zmiennej \texttt{C} oraz wypisanie kolejnych tablic które zawierający pożądane przez nas liczby wywołując funkcję \texttt{podzial}. Funkcja \texttt{podzial} pierwszej instrukcji warunkowej \texttt{if} sprawdza czy (...) a następnie wypisuje całą tablicę. Następnie sprawdza czy (...) i nie zwraca nic. W wszystkich pozostałych przypadkach 
+Kod programu składa się z dwóch funkcji: \texttt{podzial} oraz głównej funkcji \texttt{main}. ~\\
+
+Funkcja \texttt{main} ma za zadanie pobranie od użytkownika liczby, przekazanie jej do zmiennej \texttt{C} oraz wypisanie kolejnych tablic, które zawierający pożądane przez nas liczby wywołując funkcję \texttt{podzial}. ~\\
+
+Funkcja \texttt{podzial} przyjmuje jako parametry liczbę którą chcemy rozłożyć na czynniki - \texttt{C}, obecnie porównywany element - \texttt{obecny}, wskaźnik na pierwszy element tablicy - \texttt{tablica}, oraz kolejny indeks tablicy - \texttt{index}. W pierwszej instrukcji warunkowej \texttt{if} następuje sprawdzenie, czy suma obecnego elementu, oraz elementu tablicy jest równa szukanej liczbie, jeśli tak wypisz całą tablicę. Sprawdzenie to ma na celu ustalenie, czy suma elementów rozkładu liczby przechowywana w tablicy osiągnęła liczbę, jaką chcemy rozłożyć. Kolejny warunek sprawdza, czy ta suma jest większa od liczby podanej przez użytkownika, jeśli tak, nie zwraca nic. W każdym innym wypadku za pomocą pętli \texttt{for} zwiększamy kolejny element tablicy wtedy. Wtedy gdy jest on mniejszy od podanej przez nas liczby, zwiększamy indeks tablicy o jeden, oraz wywołujemy rekurencyjnie całą funkcję ze zmienionymi parametrami zwiększonego o jeden indeksu, obecnego elementu jako sumy elementu obecnego, oraz aktualnego elementu tablicy.~
 
 \end{document}
