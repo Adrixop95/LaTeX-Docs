@@ -1,0 +1,121 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{metropolis}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{polski}
+\usepackage{flexisym}
+\usepackage{parskip}
+\usepackage{algpseudocode,amsmath}
+\newcommand{\var}{\texttt}
+\newcommand{\assign}{\leftarrow}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{capt-of}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=c++,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+
+\title{Zadanie 10. Podział liczby}
+\subtitle{Adrian Rupala}
+
+\begin{document}
+	\frame {
+		\titlepage
+	}
+
+	\frame {
+		\frametitle{Treść zadania}
+		\fontsize{10pt}{7.2}\selectfont
+		\large Pewien student rozwiązując test jednokrotnego wyboru, w którym każdemu pytaniu przyporządkowano pięć odpowiedzi (w tym dokładnie jedną prawidłową), zna poprawne odpowiedzi lub zgaduje. Niech prawdopodobieństwo tego, że zna poprawną odpowiedź na dane pytanie wynosi $\frac{1}{2}$. Czyli na połowę pytań odpowiada „strzelając”. Ponieważ jest pięć odpowiedzi do wyboru, szansa, że odgadnie prawidłową odpowiedź wynosi $\frac{1}{5}$. ~ \bigskip
+		\\Jakie jest prawdopodobieństwo warunkowe tego, że student znał odpowiedź na dane pytanie, jeśli nie popełnił w tym pytaniu błędu?
+	}
+
+	\frame{
+		\frametitle{Definicje}
+		\fontsize{14pt}{7.2}\selectfont
+		 \large Twierdzenie Bayesa to twierdzenie teorii prawdopodobieństwa, wiążące prawdopodobieństwa warunkowe dwóch zdarzeń warunkujących się nawzajem, sformułowane przez Thomasa Bayesa.\\
+	}
+
+	\frame{
+	\frametitle{Definicje}
+	\fontsize{14pt}{7.2}\selectfont		
+	\large W podstawowej formie twierdzenie Bayesa mówi, że: \\
+	$P(A_{i} | B) = \frac{P(B|A_{1})P(A_{i})}{P(B)}$, gdzie: $P(B) = \sum_{i \in j} P(B|A_{j}) \cdot P(A_{j}) $ \\
+	\bigskip Kiedy $A$ i $B$ są zdarzeniami oraz $P(B) > 0$, przy czym:
+	
+	\begin{itemize}
+		\item $P(A|B)$ oznacza prawdopodobieństwo warunkowe (prawdopodobieństwo zajścia zdarzenia A o ile zajdzie zdarzenie B).~
+		\item $P(B|A)$ oznacza prawdopodobieństwo zajścia zdarzenia B, o ile zajdzie zdarzenie A.~
+	\end{itemize}~
+	}
+		
+	\frame{
+	\frametitle{Rozwiązanie}
+	\fontsize{14pt}{7.2}\selectfont	
+	
+	Z treści zadania można odczytać następujące dane:
+	\begin{itemize}
+		\item $A_{1}$ - uczeń zna odpowiedź,
+		\item $A_{2}$ -  uczeń nie zna odpowiedzi,
+		\item $B$ - uczeń nie popełnił błędu.
+	\end{itemize}
+	
+	\bigskip Podstawiając dane do wzoru Bayesa: \\
+	\bigskip $P(A_{1}|B) = \frac{P(B|A_{1}) \cdot P(A_{1})}{P(A_{1}) \cdot P(B|A_{1}) + P(A_{2}) \cdot P(B|A_{2})}$
+	}
+
+	\frame{
+	\frametitle{Rozwiązanie}
+	\fontsize{15pt}{7.2}\selectfont	
+	Z treści zadania wynika:
+	\begin{itemize}
+		\item $P(A_{1}) = P(A_{2}) = \frac{1}{2}$, 
+		\item $P(B|A_{1}) = 1$,
+		\item $P(B|A_{2}) = \frac{1}{5}$.
+	\end{itemize}
+	\bigskip $P(A_{1}|B) = \frac{\frac{1}{2} \cdot 1}{\frac{1}{2} \cdot 1 + \frac{1}{2} \cdot \frac{1}{5}}$\\
+	\bigskip $P(A_{1}|B) = \frac{1}{2(\frac{\frac{1}{5}}{2} + \frac{1}{2})}$ $\Rightarrow$ $P(A_{1}|B) = \frac{1}{2(\frac{1}{10} + \frac{1}{2})}$\\
+	}
+
+	\frame{
+	\frametitle{Rozwiązanie}
+	\fontsize{15pt}{7.2}\selectfont	
+	\bigskip $P(A_{1}|B) = \frac{1}{2\cdot \frac{5+1}{10}}$ $\Rightarrow$ $P(A_{1}|B) = \frac{1}{2 \cdot \frac{6}{10}}$\\
+	\bigskip $P(A_{1}|B) = \frac{\frac{1}{2}}{\frac{3}{5}}$\\
+	\bigskip $P(A_{1}|B) = \frac{5}{2 \cdot 3}$ \\
+	\bigskip $P(A_{1}|B) = \frac{5}{6}$	
+	}
+
+	\frame{
+	\frametitle{Odpowiedź}
+	\fontsize{15pt}{7.2}\selectfont			
+	Prawdopodobieństwo warunkowe tego, że student znał odpowiedź na pytanie, jeśli nie popełnił błędu, wynosi $\frac{5}{6}$.
+	}
+
+
+		
+	\frame{
+		\centering \Huge
+		\emph{Dziękuję za uwagę!}
+	}
+	
+\end{document}
