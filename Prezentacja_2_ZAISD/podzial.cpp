@@ -29,7 +29,7 @@ int main(){
 	cin.get();
 	cout << "======" << endl;
 
-    for(int i = 1; i < C; i++) {
+    for(int i = 1; i <= C; i++) {
         tablica[0] = i;
         podzial(C, 0, tablica, 0);
     }

@@ -116,7 +116,7 @@
 		cin.get();
 		cout << "======" << endl;
 	
-		for(int i = 1; i < C; i++) {
+		for(int i = 1; i <= C; i++) {
 			tablica[0] = i;
 			podzial(C, 0, tablica, 0);
 		}
@@ -133,12 +133,16 @@
 	\frametitle{Wykonanie kodu}
 		\begin{columns}
 			\column{.5\textwidth}
+			\begin{center}		
 			\includegraphics[width=.6\linewidth]{source/1.png}
 			\captionof{figure}{Wynik dla liczby 6.}
+			\end{center}
 			
 			\column{.5\textwidth}
+			\begin{center}
 			\includegraphics[width=.6\linewidth]{source/2.png}
   			\captionof{figure}{Wynik dla liczby 10.}
+  			\end{center}
 
 		\end{columns}
 	\end{frame}
