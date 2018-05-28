@@ -5,13 +5,6 @@
 \usepackage[OT4]{polski}
 \usepackage{flexisym}
 \usepackage{parskip}
-\usepackage{algpseudocode,amsmath}
-\newcommand{\var}{\texttt}
-\newcommand{\assign}{\leftarrow}
-\usepackage{listings}
-\usepackage{color}
-\usepackage{capt-of}
-
 
 \title{Zadanie 45. Test}
 \subtitle{Adrian Rupala}
@@ -62,24 +55,35 @@
 	\bigskip $P(A_{1}|B) = \dfrac{P(B|A_{1}) \cdot P(A_{1})}{P(A_{1}) \cdot P(B|A_{1}) + P(A_{2}) \cdot P(B|A_{2})}$
 	}
 
+
 	\frame{
-	\frametitle{Rozwiązanie}
-	\fontsize{15pt}{7.2}\selectfont	
-	Z treści zadania wynika:
-	\begin{itemize}
-		\item $P(A_{1}) = P(A_{2}) = \frac{1}{2}$, 
-		\item $P(B|A_{1}) = 1$,
-		\item $P(B|A_{2}) = \frac{1}{5}$.
-	\end{itemize}
-	\bigskip $P(A_{1}|B) = \dfrac{\frac{1}{2} \cdot 1}{\frac{1}{2} \cdot 1 + \frac{1}{2} \cdot \frac{1}{5}}$\\
-	\bigskip $P(A_{1}|B) = \dfrac{1}{2(\frac{\frac{1}{5}}{2} + \frac{1}{2})} = \dfrac{1}{2(\frac{1}{10} + \frac{1}{2})}$\\
+		\frametitle{Rozwiązanie}
+		\fontsize{15pt}{7.2}\selectfont		
+		
+		Z treści zadania wynika:
+		\begin{itemize}
+			\item $P(A_{1}) = P(A_{2}) = \frac{1}{2}$, 
+			\item $P(B|A_{1}) = 1$,
+			\item $P(B|A_{2}) = \frac{1}{5}$.
+		\end{itemize}
+		\bigskip $P(A_{1}|B) = \dfrac{\frac{1}{2} \cdot 1}{\frac{1}{2} \cdot 1 + \frac{1}{2} \cdot \frac{1}{5}}$\\
+				
 	}
 
 	\frame{
 	\frametitle{Rozwiązanie}
 	\fontsize{15pt}{7.2}\selectfont	
+	\bigskip $P(A_{1}|B) = \dfrac{1}{2(\frac{\frac{1}{5}}{2} + \frac{1}{2})} = \dfrac{1}{2(\frac{1}{10} + \frac{1}{2})}$\\
 	\bigskip $P(A_{1}|B) = \dfrac{1}{2\cdot \frac{5+1}{10}} = \dfrac{1}{2 \cdot \frac{6}{10}}$\\
 	\bigskip $P(A_{1}|B) = \dfrac{\dfrac{1}{2}}{\dfrac{3}{5}}$\\
+	
+	
+	}
+
+	\frame{
+	\frametitle{Rozwiązanie}
+	\fontsize{15pt}{7.2}\selectfont	
+
 	\bigskip $P(A_{1}|B) = \dfrac{5}{2 \cdot 3}$ \\
 	\bigskip $P(A_{1}|B) = \dfrac{5}{6}$	
 	}
@@ -89,7 +93,6 @@
 	\fontsize{15pt}{7.2}\selectfont			
 	Prawdopodobieństwo warunkowe tego, że student znał odpowiedź na pytanie, jeśli nie popełnił błędu, wynosi $\frac{5}{6}$.
 	}
-
 
 		
 	\frame{
